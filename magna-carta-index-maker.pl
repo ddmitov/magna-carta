@@ -29,13 +29,13 @@ open my $output_filehandle, '>', "magna-carta-index.txt" or
   die "Could not open magna-carta-index.txt!";
 
 # Sort the results alphabetically:
-foreach my $word (sort {lc($a) cmp lc($b)} keys %word_count) {
-  my $formatted_word_count = sprintf("%03d", $word_count{$word});
-  print $output_filehandle
-    "<a href=\"javascript:highlight('$word');\">$formatted_word_count&nbsp;&nbsp;$word</a>\n"
-}
+# foreach my $word (sort {lc($a) cmp lc($b)} keys %word_count) {
+#   my $formatted_word_count = sprintf("%03d", $word_count{$word});
+#   print $output_filehandle
+#     "<li><a href=\"javascript:highlight('$word');\">$formatted_word_count&nbsp;$word</a></li>\n"
+# }
 
-print $output_filehandle "\n==============================\n\n";
+# print $output_filehandle "\n==============================\n\n";
 
 # Sort the results according to frequency,
 # words with equal frequency are sorted alphabetically:
@@ -44,7 +44,7 @@ foreach my $word (reverse sort {$word_count{$a} <=> $word_count{$b} ||
                                 keys %word_count) {
   my $formatted_word_count = sprintf("%03d", $word_count{$word});
   print $output_filehandle
-    "<a href=\"javascript:highlight('$word');\">$formatted_word_count&nbsp;&nbsp;$word</a>\n"
+    "<li><a href=\"javascript:highlight('$word');\">$formatted_word_count&nbsp;$word</a></li>\n"
 }
 
 close $output_filehandle;

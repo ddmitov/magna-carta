@@ -26,6 +26,10 @@ https://www.w3schools.com/howto/howto_css_vertical_menu.asp
 
 https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript  
 
+## Progressive Web App
+
+https://developers.google.com/web/fundamentals/web-app-manifest/  
+
 ## Perl 5
 
 https://perlmaven.com/count-words-in-text-using-perl  

@@ -1567,6 +1567,10 @@
     }
 
     window.onload = getOriginalText();
+
+    if (navigator.serviceWorker && !navigator.serviceWorker.controller) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
   </script>
 </body>
 

@@ -29,6 +29,7 @@ https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-
 ## Progressive Web App
 
 https://developers.google.com/web/fundamentals/web-app-manifest/  
+https://adactio.com/journal/13540  
 
 ## Perl 5
 

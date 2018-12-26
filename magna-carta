@@ -5,11 +5,14 @@ use warnings;
 use utf8;
 use feature ':5.10';
 
+# CORE MODULE:
+use File::Spec::Functions qw(catdir);
+
 # CPAN MODULE:
 use Mojolicious::Lite;
 
 # Static file path:
-unshift @{app->static->paths}, $ENV{PWD};
+unshift @{app->static->paths}, catdir($ENV{PWD}, 'resources');
 
 # ROUTE HANDLER:
 get '/' => sub {

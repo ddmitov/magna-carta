@@ -1,7 +1,7 @@
 // Licensed under a CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
 // http://creativecommons.org/publicdomain/zero/1.0/
 
-// HTML files: try the network first, then the cache.
+// HTML files: try the cache first, then the network.
 // Other files: try the cache first, then the network.
 // Both: cache a fresh version if possible.
 // (beware: the cache will grow and grow; there's no cleanup)
@@ -22,15 +22,14 @@ addEventListener('fetch',  fetchEvent => {
       return myCache.put(request, responseCopy);
     }());
     if (request.headers.get('Accept').includes('text/html')) {
-      try {
-        return fetchPromise;
-      }
-      catch(error) {
-        return caches.match(request);
-      }
-    } else {
       const responseFromCache = await caches.match(request);
       return responseFromCache || fetchPromise;
+    } else {
+      try {
+        return fetchPromise;
+      } catch(error) {
+        return caches.match(request);
+      }
     }
   }());
 });

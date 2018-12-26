@@ -3,6 +3,11 @@
   "name": "Magna Carta",
   "icons": [
     {
+      "src": "/icons/scroll-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
       "src": "/icons/scroll-192x192.png",
       "type": "image/png",
       "sizes": "192x192"

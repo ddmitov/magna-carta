@@ -29,8 +29,8 @@ https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-
 ## Progressive Web App
 
 https://developers.google.com/web/fundamentals/web-app-manifest/  
-https://adactio.com/journal/13540  
 https://stackoverflow.com/questions/43003424/why-is-my-add-to-home-screen-web-app-install-banner-not-showing-up-in-my-web-a  
+https://serviceworke.rs/  
 
 ## Perl 5
 

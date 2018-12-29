@@ -1,35 +1,67 @@
-// Licensed under a CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
-// http://creativecommons.org/publicdomain/zero/1.0/
+var CACHE = 'network-or-cache';
 
-// HTML files: try the cache first, then the network.
-// Other files: try the cache first, then the network.
-// Both: cache a fresh version if possible.
-// (beware: the cache will grow and grow; there's no cleanup)
+// On install, cache some resource.
+self.addEventListener('install', function(evt) {
+  console.log('The service worker is being installed.');
 
-const cacheName = 'files';
-
-addEventListener('fetch',  fetchEvent => {
-  const request = fetchEvent.request;
-  if (request.method !== 'GET') {
-    return;
-  }
-  fetchEvent.respondWith(async function() {
-    const fetchPromise = fetch(request);
-    fetchEvent.waitUntil(async function() {
-      const responseFromFetch = await fetchPromise;
-      const responseCopy = responseFromFetch.clone();
-      const myCache = await caches.open(cacheName);
-      return myCache.put(request, responseCopy);
-    }());
-    if (request.headers.get('Accept').includes('text/html')) {
-      const responseFromCache = await caches.match(request);
-      return responseFromCache || fetchPromise;
-    } else {
-      try {
-        return fetchPromise;
-      } catch(error) {
-        return caches.match(request);
-      }
-    }
-  }());
+  // Ask the service worker to keep installing until the returning promise
+  // resolves.
+  evt.waitUntil(precache());
 });
+
+// On fetch, use cache but update the entry with the latest contents
+// from the server.
+self.addEventListener('fetch', function(evt) {
+  console.log('The service worker is serving the Magna Carta.');
+  // Try network and if it fails, go for the cached copy.
+  evt.respondWith(fromNetwork(evt.request, 400).catch(function () {
+    return fromCache(evt.request);
+  }));
+});
+
+// Open a cache and use `addAll()` with an array of assets to add all of them
+// to the cache. Return a promise resolving when all the assets are added.
+function precache() {
+  return caches.open(CACHE).then(function (cache) {
+    return cache.addAll([
+      './magna-carta.html',
+      './service-worker.js',
+      './manifest.json',
+      './icons/scroll-36x36.png',
+      './icons/scroll-48x48.png',
+      './icons/scroll-72x72.png',
+      './icons/scroll-96x96.png',
+      './icons/scroll-144x144.png',
+      './icons/scroll-192x192.png',
+      './icons/scroll-256x256.png',
+      './icons/scroll-384x384.png',
+      './icons/scroll-512x512.png'
+    ]);
+  });
+}
+
+// Time limited network request. If the network fails or the response is not
+// served before timeout, the promise is rejected.
+function fromNetwork(request, timeout) {
+  return new Promise(function (fulfill, reject) {
+    // Reject in case of timeout.
+    var timeoutId = setTimeout(reject, timeout);
+    // Fulfill in case of success.
+    fetch(request).then(function (response) {
+      clearTimeout(timeoutId);
+      fulfill(response);
+    // Reject also if network fetch rejects.
+    }, reject);
+  });
+}
+
+// Open the cache where the assets were stored and search for the requested
+// resource. Notice that in case of no matching, the promise still resolves
+// but it does with `undefined` as value.
+function fromCache(request) {
+  return caches.open(CACHE).then(function (cache) {
+    return cache.match(request).then(function (matching) {
+      return matching || Promise.reject('no-match');
+    });
+  });
+}

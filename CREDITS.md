@@ -16,7 +16,7 @@ https://realfavicongenerator.net/
 https://perlmaven.com/count-words-in-text-using-perl  
 https://stackoverflow.com/questions/17272176/case-independent-sorting  
 
-## JavaScript
+## Front-End JavaScript
 
 https://www.w3schools.com/howto/howto_js_filter_lists.asp  
 https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript  
@@ -25,6 +25,7 @@ https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-
 
 https://developers.google.com/web/fundamentals/web-app-manifest/  
 https://serviceworke.rs/  
+https://github.com/medikoo/essentials  
 
 ## CSS
 

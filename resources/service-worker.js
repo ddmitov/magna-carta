@@ -1,3 +1,11 @@
+// Expose unhandled promise rejections:
+if (typeof addEventListener === "function") {
+  addEventListener("unhandledrejection", function (event) {
+    event.preventDefault();
+    console.log(event.reason);
+  });
+}
+
 var CACHE = 'network-or-cache';
 
 // On install, cache some resource.

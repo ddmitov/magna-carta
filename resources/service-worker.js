@@ -10,8 +10,6 @@ var CACHE = 'network-or-cache';
 
 // On install, cache some resource.
 self.addEventListener('install', function(event) {
-  console.log('The service worker is being installed.');
-
   // Ask the service worker to keep installing until the returning promise
   // resolves.
   event.waitUntil(precache());
@@ -19,13 +17,11 @@ self.addEventListener('install', function(event) {
 
 // On fetch, use cache but update the entry with the latest contents
 // from the server.
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function(evt) {
   // Try network and if it fails, go for the cached copy.
-  event.respondWith(fromNetwork(event.request, 400).catch(function () {
-    return fromCache(event.request);
-  })).catch(event => {
-    console.log(event);
-  });
+  evt.respondWith(fromNetwork(evt.request, 400).catch(function () {
+    return fromCache(evt.request);
+  }));
 });
 
 // Open a cache and use `addAll()` with an array of assets to add all of them

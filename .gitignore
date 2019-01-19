@@ -2,5 +2,5 @@ archive
 local
 
 cpanfile.snapshot
-gdrive
+backup
 upgit

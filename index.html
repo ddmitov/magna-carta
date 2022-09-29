@@ -7,8 +7,6 @@
 
   <title>Magna Carta Libertatum</title>
 
-  <link rel="manifest" href="/manifest.json">
-
   <script>
     var originalText;
 
@@ -1567,10 +1565,6 @@
     }
 
     window.onload = getOriginalText();
-
-    if (navigator.serviceWorker && !navigator.serviceWorker.controller) {
-      navigator.serviceWorker.register('/service-worker.js');
-    }
   </script>
 </body>
 

@@ -6,21 +6,10 @@ Amatae meae Argeiae - do, dono, dedico!
 
 https://la.wikisource.org/wiki/Magna_Carta_(B%C3%A9mont)  
 
-## Magna Carta Icon
-
-https://openclipart.org/detail/221940/scroll-icon  
-https://realfavicongenerator.net/  
-
-## Front-End JavaScript
+## JavaScript
 
 https://www.w3schools.com/howto/howto_js_filter_lists.asp  
 https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript  
-
-## Progressive Web App
-
-https://developers.google.com/web/fundamentals/web-app-manifest/  
-https://serviceworke.rs/  
-https://github.com/medikoo/essentials  
 
 ## CSS
 

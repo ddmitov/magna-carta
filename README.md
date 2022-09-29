@@ -1,10 +1,8 @@
 # Magna Carta
 
-Magna Carta е Perl 5 Mojolicious::Lite прогресивно уеб приложение за платформата Heroku.  
-То представя текста на Magna Carta Libertatum от 1215 г. заедно с честотен индекс на всички словоформи.  
+Magna Carta е прогресивно уеб приложение, което представя текста на Magna Carta Libertatum от 1215 г. заедно с честотен индекс на всички словоформи.  
 
-Magna Carta is a Perl 5 Mojolicious::Lite progressive web application for the Heroku platform.  
-It presents the text of Magna Carta Libertatum of 1215 with a word frequency index.  
+Magna Carta is a progressive web application presenting the text of Magna Carta Libertatum of 1215 with a word frequency index.  
 
 ## [Credits](./CREDITS.md)
 
@@ -19,4 +17,4 @@ The Scroll icon by dear_theophilus is taken from [openclipart.org](openclipart.o
 
 The service worker of Magna Carta is taken from the [ServiceWorker Cookbook](https://serviceworke.rs/) and is licensed under the [MIT License](https://github.com/mozilla/serviceworker-cookbook/blob/master/LICENSE).  
 
-Dimitar D. Mitov 2018  
+Dimitar D. Mitov 2018, 2022  

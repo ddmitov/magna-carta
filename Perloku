@@ -1,3 +1,0 @@
-#!/bin/sh
-
-./magna-carta prefork --listen http://*:$PORT --mode production

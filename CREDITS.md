@@ -11,11 +11,6 @@ https://la.wikisource.org/wiki/Magna_Carta_(B%C3%A9mont)
 https://openclipart.org/detail/221940/scroll-icon  
 https://realfavicongenerator.net/  
 
-## Perl 5
-
-https://perlmaven.com/count-words-in-text-using-perl  
-https://stackoverflow.com/questions/17272176/case-independent-sorting  
-
 ## Front-End JavaScript
 
 https://www.w3schools.com/howto/howto_js_filter_lists.asp  
